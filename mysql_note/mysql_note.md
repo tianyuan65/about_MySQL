@@ -60,10 +60,19 @@
     * 8. Group by子句
         * ![统计出性别类别及其数量，关键字为COUNT(t_student.age) ... GROUP BY](images/统计性别分类和数量.PNG)
 * 4.2 连接查询
-    * 1. 等值于非等值连接查询
+    * 1. 等值与非等值连接查询
+        * ![连接两个表](images/等值与非等值连接查询.PNG)
     * 2. 自身连接
+        * ![score表和自身连接](images/score表自身连接.PNG)
     * 3. 外连接
-    * 4. 符合条件连接
+        * 左外连接，列出左边关系的所有元祖，我没能列出来，命令为```SELECT t_student.`name`,t_student.`age`,t_student.`gender`,t_score.`score` FROM t_score LEFT OUTER JOIN  t_student stu ON (t_score.`stu_id`=t_student.`id`)```
+        * 右外连接，列出右边关系的所有元祖，命令为```SELECT t_student.`name`,t_student.`age`,t_student.`gender`,t_score.`score` FROM t_score RIGHT OUTER JOIN  t_student stu ON (t_score.`stu_id`=t_student.`id`)```
+    * 4. 复合条件连接，查找score>90的学生，命令为```SELECT t_student.`name`,t_student.`age`,t_student.`gender`,t_score.`score` FROM t_score,t_student WHERE t_score.`stu_id`=t_student.`id` AND t_score.`score`>90```
+        * ![90分以上的学生](images/查找分数大于90.PNG)
 * 4.3 嵌套查询
+    * 1. 带有IN谓词的子查询
+    * 2. 带有比较运算符的子查询
+    * 3. 带有ANY(SOME)或者ALL谓词的子查询
+    * 4. 带有EXISTS谓词的子查询
 * 4.4 集合查询
 * 4.5 SELECT语句的一般格式
