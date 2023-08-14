@@ -71,8 +71,17 @@
         * ![90分以上的学生](images/查找分数大于90.PNG)
 * 4.3 嵌套查询
     * 1. 带有IN谓词的子查询
+        * ![找出好学生，在这里是t_student表和t_good_stu表中name重合的学生](images/带有IN谓词的子查询.PNG)
     * 2. 带有比较运算符的子查询
+        * ![找出t_student表和t_good_stu表中重合的李四](images/有比较运算符的子查询.PNG)
     * 3. 带有ANY(SOME)或者ALL谓词的子查询
-    * 4. 带有EXISTS谓词的子查询
+        * ![ANY是小/大/等于子查询当中的某个值:首先查询t_score中score小于80的学生，再查询和展示刚才获取的score小于80的id、stu_id和score](images/带有ANY谓词的子查询.PNG)
+        * ![ALL:是小/大/等于子查询当中的所有值](images/带有ALL谓词的子查询.PNG)
+    * 4. 带有EXISTS谓词的子查询，EXIST:代表存在量词，不会返回任何数据，只产生逻辑结果，就是true/false。其对应的反义谓词为 NOT EXIST，就是使用EXIST后返回什么，NOT EXIST就反着来。
+        * ![符合条件](images/存在符合条件的就列出来.PNG)
+        * ![不符合条件](images/不存在符合条件的空集啥也不返回.PNG)
 * 4.4 集合查询
+    * 1. UNION并集
+    * 2. INTERSECT交集
+    * 3. EXCEPT差集
 * 4.5 SELECT语句的一般格式
