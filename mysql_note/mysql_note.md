@@ -81,7 +81,21 @@
         * ![符合条件](images/存在符合条件的就列出来.PNG)
         * ![不符合条件](images/不存在符合条件的空集啥也不返回.PNG)
 * 4.4 集合查询
-    * 1. UNION并集
-    * 2. INTERSECT交集
-    * 3. EXCEPT差集
+    * 1. UNION并集，列出符合age大于20的不管gender是否为男，并列出符合gender为男不管age是否大于20。
+        * ![条件为age大于20，gender为'男'](images/UNION并集.PNG)
+    * 2. INTERSECTS交集，MySQL中无法使用，也看不到运行结果，用到时再说，其实就是列出同时符合条件的数据。
+        * ```SELECT * FROM t_student WHERE t_student.`age`>20 INTERSECTS SELECT * FROM t_student WHERE t_student.`gender`="男"```
+    * 3. EXCEPT差集，就是列出符合条件的数据以外的数据，
 * 4.5 SELECT语句的一般格式
+    * ```
+        SELECT[ALL|DISTINCT]<目标列表达式> [AS列名] [,<目标列表达式> [AS列名]...] 
+        FROM <表明或视图名> [别名][,<表名或视图名>[别名]]... 
+        WHERE <条件表达式> [AND|OR<条件表达式>...]
+        [GROUP BY 列名[HAVING <条件表达式>]]
+        [ORDER BY 列名[ASC|DESC]]
+      ```
+
+## 第五章 数据更新
+* 5.1 插入数据
+* 5.2 修改数据
+* 5.3 删除数据
