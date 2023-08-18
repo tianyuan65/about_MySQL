@@ -103,7 +103,9 @@
         * ![一行一行插入，不想写的就null版](images/不想添加的就null.PNG)
     * 2. 批量插入
         * ![查询想要的数据，在这里是查询了number和teacherName，之后批量插入](images/查询想要的数据后，批量插入.PNG)
-* 5.2 修改数据
+* 5.2 修改数据，关键字为UPDATE ... SET ... (WHERE) ...
     * ![修改全部的age为55](images/修改年龄.PNG)
-    * ![将全部的age减去5岁](images/修改年龄减5岁.PNG)
-* 5.3 删除数据
+    * ![将全部的age减去5岁，](images/修改年龄减5岁.PNG)
+* 5.3 删除数据，关键字为DELETE FROM ... WHERE ...
+    * ![删除id为8的数据](images/删除id为8的那一行数据.PNG)
+    * ![删除全部数据](images/删除全部.PNG)
