@@ -118,10 +118,35 @@
     * 缺点：需要投入更多精力管理索引
 * 6.3 索引的类别
     * 1. 普通索引，这类索引可以创建在任何数据类型中，VARCHAR,INT,BUBBLE中都可以创建。
+        * ![CREATE TABLE t_user(id INT,userName VARCHAR(40),password VARCHAR(30),INDEX(userName))](images/普通索引.PNG)
     * 2. 唯一性索引，使用UNIQUE参数可以设置，再创建唯一性索引时，限制该索引的值必须是唯一的
+        * ![CREATE TABLE t_user3(id INT,userName VARCHAR(40),PASSWORD VARCHAR(30),UNIQUE INDEX(userName))](images/唯一性索引.PNG)
     * 3. 全文索引，使用FULLTEXT参数可以设置，全文索引只能创建在CHAR,VARCHAR,TEXT类型的字段上，主要作用就是提高查询较大字符串类型的速度。但是MySQL引擎上默认不支持
     * 4. 单列索引，在表中可以给单个字段创建索引，单列索引可以是普通索引，也可以是唯一性索引，还可以是全文索引。
     * 5. 多列索引，是在表的多个字段上创建一个索引
+        * ![CREATE TABLE t_user3(id INT,userName VARCHAR(40),PASSWORD VARCHAR(30),INDEX userNameandpassword(userName,PASSWORD))，多列索引，并指定索引名](images/多列索引.PNG)
     * 6. 空间索引，使用SPATIAL参数可以设置空间索引。空间索引只能建立在空间数据类型上，这样可以提高系统获取空间数据的效率；只有MylSAM引擎支持该索引，MySQL默认引擎不支持
 * 6.4 索引的创建
+    * ```
+        CREATE TABLE 表名 (属性名 数据类型 [完整性约束条件],
+        属性名 数据类型 [完整性约束条件],
+        ... 属性名 数据类型
+        [UNIQUE | FULLTEXT | SPATIAL | INDEX | KEY | 
+        [别名] (属性名1 [(长度)] [ASC|DESC])]
+        )
+      ```
+    * 1. 在已经存在的表上创建索引
+        * ```
+            CREATE [ UNIQUE | FULLTEXT | SPATIAL ] INDEX 索引名 ON 表名 (属性名 [(长度)] [ ASC | DESC])
+          ```
+        * ![CREATE UNIQUE INDEX userName_index ON t_user4(t_user4.`userName`)，在已存在的表上创建索引](images/创建唯一性索引.PNG)
+    * 2. 用 ALERT TABLE 语句来创建索引
+        * ```
+            ALTER TABLE 表名 ADD [UNIQUE | FULLTEXT | SPATIAL] INDEX 索引名 (属性名 [(长度)] [ASC | DESC])
+          ```
+        * ![ALTER TABLE t_user4 ADD INDEX userName_index(userName)，用ALTER TABLE语句创建普通索引](images/ALTER%20TABLE语句创建索引.PNG)
+        * ![ALTER TABLE t_user4 ADD INDEX userName_password_index(userName,PASSWORD)，ALTER TABLE创建多列](images/ALTER%20TABLE语句创建多列索引.PNG)
 * 6.5 索引的删除
+    * ```DROP INDEX 索引名 ON 表名 ```
+    * ![删除userName_index索引，对比ALTER TABLE创建普通索引看，删除了该索引](images/删除userName_index索引.PNG)
+    * ![删除userName_password_index索引](images/删除userName_password_index索引.PNG)
