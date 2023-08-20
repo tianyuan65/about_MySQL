@@ -171,4 +171,9 @@
 * 7.4 查询视图
     * ![查询视图，方法同查询表](images/查询视图.PNG)
 * 7.5 更新视图结构
+    * 1. CREATE OR REPLACE VIEW，```CREATE OR REPLACE VIEW is_book AS SELECT t_book.`bookName` FROM t_book```
+        * ![创建或替换并查看is_book视图中，查询到的t_book的bookName](images/CREATE%20OR%20REPLACE%20VIEW方法.PNG)
+    * 2. ALTER，```ALTER VIEW is_book AS SELECT * FROM t_book```
+        * ![更新并查看is_book视图中，查询到的t_book的全部字段](images/ALTER方法更新视图.PNG)
 * 7.6 视图数据更新
+    * 
