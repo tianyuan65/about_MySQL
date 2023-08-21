@@ -200,4 +200,26 @@
       ``` 
         * 创建一个触发器，设置一个触发器的名称，也可以带一个数据库名称的前缀。before和after指的是，是决定在INSERT | UPDATE | DELETE语句之前还是之后执行这个触发器内容的。跟上关键字ON，dbo代表该表的所有者/管理员，后面跟上表名。FOR EACH ROW代表行级触发器。BEGIN和END这两个关键字之间写的就是触发器要执行的内容，但如果内容只有一行的话，这两个关键字就不用写。
 * 8.4 激活触发器
+    * 触发器的执行，是由触发事件激活的，并由数据库服务器自动执行的一个表上可能定义了多个触发器，同一个表上的多个触发器激活时遵循如下的执行顺序：
+        * 1. 执行该表上的before触发器
+        * 2. 激活触发器的sql语句
+        * 3. 执行该表上的after触发器
+    * 下面这段代码不用手动写，在触发器上右键，输入触发器名，并选择before/after，再在BEGIN和END之间写上触发器执行的内容即可。代码下面是这个触发器执行之后，表数据的变化情况。
+        *  ```
+                DELIMITER $$
+
+                CREATE
+                    /*[DEFINER = { user | CURRENT_USER }]*/
+                    TRIGGER `db_book`.`insert_trigger2` AFTER INSERT
+                    ON t_book
+                    FOR EACH ROW BEGIN
+                    UPDATE t_bookType SET num=num+1 WHERE new.bookTypeId=t_bookType.`id`;
+                    INSERT INTO t_log VALUES(NULL,'在t_book表中添加了一条数据',NOW());
+                    END$$
+
+                DELIMITER ;
+            ```
+        * ![在t_book表上添加军事书4、5](images/添加数据.PNG)
+        * ![执行触发器内容后，bookType表数据的变化](images/成功触发触发器.PNG)
+        * ![成功向t_log表中的content列添加数据](images/成功添加数据.PNG)
 * 8.5 删除触发器
