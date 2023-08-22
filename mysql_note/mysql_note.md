@@ -238,7 +238,24 @@
         * 3. 统一缺口，确保数据的安全
     * 缺点：
         * 1. 移植困难。不同的数据库，语法差别很大，不可直接移植
-        * 2. 管理困难。把过多业务逻辑写在存储过程不好维护，不利于分层管理，容易混乱，一般存储过程适用于个别，对性能要求较高的业务，其他的必要性不是很大。
+        * 2. 管理困难。把过多业务逻辑写在存储过程不好维护，不利于分层管理，容易混乱，一般存储过程适用于个别对性能要求较高的业务，其他的必要性不是很大。
 * 9.3 定义存储过程
+    * 创建存储过程后，其方法与触发器相似，在BEGIN和END之间写需要执行的内容。全选，右键，执行全部查询后，另创建新的查询编辑器，执行CALL 语句，执行想要查询的表，即可查看。
+    * ```
+        DELIMITER $$
+        CREATE
+            /*[DEFINER = { user | CURRENT_USER }]*/
+            PROCEDURE `db_book`.`proc_add`()
+            /*LANGUAGE SQL
+            | [NOT] DETERMINISTIC
+            | { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
+            | SQL SECURITY { DEFINER | INVOKER }
+            | COMMENT 'string'*/
+            BEGIN
+            SELECT * FROM t_book;
+            END$$
+        DELIMITER ;
+      ```
+    * ![执行存储过程中的查询t_book表的语句](images/查找t_book表的内容.PNG)
 * 9.4 存储过程的控制语句
 * 9.5 删除存储过程
