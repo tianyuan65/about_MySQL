@@ -257,5 +257,25 @@
         DELIMITER ;
       ```
     * ![执行存储过程中的查询t_book表的语句](images/查找t_book表的内容.PNG)
+    * 创建存储过程proc_add2，并传递a,b和SUM，这三个参数，执行内容为SUM为a和b之和。新创建查询编辑器，执行CALL语句，并查询执行内容之后，SUM的值。
+        * ```
+            DELIMITER ;;
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_add2`(IN a INT, IN b INT, OUT SUM INT)
+            BEGIN
+                DECLARE c INT;
+                IF a IS NULL THEN SET a = 0; 
+                END IF;
+            
+                IF b IS NULL THEN SET b = 0;
+                END IF;
+
+                SET SUM  = a + b;
+            END ;;
+            DELIMITER ;
+          ```
+        * ![存储过程中传递参数，并执行内容为加法](images/在存储过程当中执行加法.PNG)
 * 9.4 存储过程的控制语句
+    * 1. if语句
+    * 2. Case语句
+    * 3. While语句
 * 9.5 删除存储过程
