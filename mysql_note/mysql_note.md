@@ -330,4 +330,5 @@
           ```
         * ![while语句如何循环](images/while语句如何循环.jpg)
         * ![传参0，结果为0；传参1，结果为1；传参3，结果是6，原理看while语句循环原理](images/while语句循环结果.PNG)
-* 9.5 删除存储过程
+* 9.5 删除存储过程，若该存储过程存在，即可删除，语句就是
+    * ```DROP PROCEDURE IF EXISTS `procedure_name`;```
