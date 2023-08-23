@@ -275,7 +275,59 @@
           ```
         * ![存储过程中传递参数，并执行内容为加法](images/在存储过程当中执行加法.PNG)
 * 9.4 存储过程的控制语句
-    * 1. if语句
-    * 2. Case语句
-    * 3. While语句
+    * 1. if语句，创建存储过程后，可以为其传递参数，并且是和JS类似的if语句。在新的查询编辑器里call 存储过程名(参数，也就是条件)，即可查看执行内容。
+        * ```
+            DELIMITER ;;
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_if`(IN type int)
+            BEGIN
+                DECLARE c varchar(500);
+                IF type = 0 THEN
+                    set c = 'type is 0';
+                ELSEIF type = 1 THEN
+                    set c = 'type is 1';
+                ELSE
+                    set c = 'type is others, not 0 or 1';
+                END IF;
+            select c;
+            END ;;
+            DELIMITER ;
+          ```
+        * ![若传参0，查询到的就是`type is 0`；若传参1，就是`type is 1`；若是其他，就是图片](images/call存储过程，执行if语句的结果.PNG)
+    * 2. Case语句，方法基本同上，只是使用的语句不同，其效果也同if语句。
+        * ```
+            DELIMITER ;;
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_case`(IN type int)
+            BEGIN
+                DECLARE c varchar(200);
+                CASE type
+                WHEN 0 THEN
+                    set c = 'type is 0';
+                WHEN 1 THEN
+                    set c = 'type is 1';
+                ELSE
+                    set c = 'type is others, not 0 or 1';
+                END CASE;
+            select c;
+            END ;;
+            DELIMITER ;
+          ```
+    * 3. While语句，
+        * ```
+            DELIMITER ;;
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_while`(IN n int)
+            BEGIN
+            DECLARE i int;
+            DECLARE s int;
+            SET i = 0;
+            SET s = 0;
+            WHILE i <= n DO
+                set s = s + i;
+                set i = i + 1;
+            END WHILE;
+            SELECT s;
+            END ;;
+            DELIMITER ;
+          ```
+        * ![while语句如何循环](images/while语句如何循环.jpg)
+        * ![传参0，结果为0；传参1，结果为1；传参3，结果是6，原理看while语句循环原理](images/while语句循环结果.PNG)
 * 9.5 删除存储过程
