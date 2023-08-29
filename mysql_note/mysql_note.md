@@ -369,5 +369,22 @@
     * 8. REVERSE(str)：返回颠倒字符顺序的字符串str。
         * ![颠倒字符串的顺序](images/REVERSE函数.PNG)
 * 10.4 日期和时间函数
-   
+    * 1. DAYOFWEEK(date):返回日期date的星期索引(1=星期天，2=星期一，...，7=星期六)。
+        * ![返回输入日期的星期索引](images/DATEOFWEEK函数.PNG)
+    * 2. DAYOFYEAR(date):返回date在一年中的日数，在1到366范围内。
+        * ![返回输入的日期在一年中的第几天的数](images/DATEOFYEAR函数.PNG)
+    * 3. QUARTER(date):返回date一年中的季度，范围1到4。
+        * ![返回输入的日期是一年中的第几季度的数，范围是1~4](images/QUARTER函数.PNG)
+    * 4. DATE_ADD(date,INTERVAL expr type):进行日期逐渐增长的操作，可以精确到秒。
+        * ![日期增长的操作，第一个参数是日期，第二个是增长多少时间，这是second](images/DATE_ADD函数SECOND.PNG)
+        * ![日期增长的操作，第一个参数是日期，第二个是增长多少时间，这是hour](images/DATE_ADD函数HOUR.PNG)
+    * 5. DATE_SUB(date,INTERVAL expr type):进行日期减少的操作，可以精确到秒。
+        * ![日期减少的操作，这是second](images/DATE_SUB函数SECOND.PNG)
+        * ![日期减少的操作，这是minute](images/DATE_SUB函数MINUTE.PNG)
+    * 6. CURRENT_DATE:以`YYYY-MM-DD`或YYYYMMDD格式返回今天日期值，取决于函数在一个字符串还是数字上下文被使用。
+        * ![返回今天的日期值](images/CURRENT_DATE函数.PNG)
+    * 7. CURRENT_TIME:以`HH:MM:SS`或HHMMSS格式返回当前时间值。
+        * ![返回点击执行时的时间值](images/CURRENT_TIME函数.PNG)
+    * 8. NOW():以`YYYY-MM-DD HH:MM:SS`或YYYYMMDDHHMMSS格式返回当前的日期和时间。
+        * ![返回点击执行时的日期时间值](images/NOW函数.PNG)
 * 10.5 加密函数
