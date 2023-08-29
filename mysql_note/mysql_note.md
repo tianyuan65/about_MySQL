@@ -388,3 +388,7 @@
     * 8. NOW():以`YYYY-MM-DD HH:MM:SS`或YYYYMMDDHHMMSS格式返回当前的日期和时间。
         * ![返回点击执行时的日期时间值](images/NOW函数.PNG)
 * 10.5 加密函数
+    * 1. PASSWORD(str):可以对字符串str进行加密。
+        * ![为1234567密码加密](images/PASSWORD函数.PNG)
+    * 2. MD5(str):可以对字符串str进行加密
+        * ![为987654321密码加密](images/MD5函数.PNG)
