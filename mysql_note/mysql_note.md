@@ -350,7 +350,24 @@
         * ![真四舍五入之取小](images/ROUND函数之取小.PNG)
         * ![真四舍五入之取大](images/ROUND函数之取大.PNG)
 * 10.3 字符串函数
-    
+    * 1. ASCII(str)：返回字符串str的最左面字符的ASCII代码值。如果str是空字符串，返回0,；如果str是null，返回null。
+        * ![ASCII代码的A值，根据大小写，值也不同，a是97](images/ASCII函数-A.PNG)
+        * ![B的值，b是98](images/ASCII函数-B.PNG)
+    * 2. LENGTH(str)：返回字符串str的长度。
+        * ![统计并返回字符串的长度](images/LENGTH函数.PNG)
+    * 3. LOCATE(substr,str)：返回子串substr在字符串str第一个出现的位置，如果substr不是在str里面，返回0。
+        * ![sunstr存在，并返回在str中第一个出现的位置](images/LOCATE函数，substr存在.PNG)
+        * ![substr不存在，返回0](images/LOCATE函数，substr不存在.PNG)
+    * 4. LEFT(str,len)：返回字符串str的最左面len个字符。
+        * ![返回字符串str的最左面的len个字符](images/LEFT函数.PNG)
+    * 5. RIGHT(str,len)：返回字符串str的最右面len个字符。
+        * ![返回字符串str最右面的len个字符](images/RIGHT函数.PNG)
+    * 6. SUBSTRING(str,pos)：从字符串str的起始位置pos返回一个子串。
+        * ![从字符串的起始位置返回一个子串，1的话从第一个开始；2的话从第二个开始](images/SUBSTRING函数.PNG)
+    * 7. TRIM(str)：返回字符串str，所有前缀或后缀空格被删除了。
+        * ![最前和最后的空格全部删除，中间的管不上](images/TRIM函数.PNG)
+    * 8. REVERSE(str)：返回颠倒字符顺序的字符串str。
+        * ![颠倒字符串的顺序](images/REVERSE函数.PNG)
 * 10.4 日期和时间函数
    
 * 10.5 加密函数
